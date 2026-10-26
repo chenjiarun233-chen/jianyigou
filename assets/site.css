@@ -168,8 +168,9 @@ img {
 
 .hero {
   position: relative;
-  margin-top: calc(var(--bar-h) + 12px + var(--header-h));
-  height: calc(100dvh - var(--bar-h) - 12px - var(--header-h));
+  /* 照片从公告条下沿开始，导航条浮在照片之上 */
+  margin-top: var(--bar-h);
+  height: calc(100dvh - var(--bar-h));
   min-height: 520px;
   overflow: hidden;
   background: #2a2320;
@@ -461,8 +462,8 @@ a.help__row:hover {
   }
 
   .hero {
-    margin-top: calc(var(--bar-h) + 8px + var(--header-h));
-    height: calc(100dvh - var(--bar-h) - 8px - var(--header-h));
+    margin-top: var(--bar-h);
+    height: calc(100dvh - var(--bar-h));
     min-height: 480px;
   }
 
