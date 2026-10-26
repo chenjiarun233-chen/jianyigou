@@ -3,53 +3,39 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>时装｜简衣购 Jianyigou</title>
+    <title>款式｜简衣购 Jianyigou</title>
     <meta name="description" content="简衣购时装产品目录。" />
     <meta name="theme-color" content="#0a0a0a" />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="assets/site.css?v=2" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="assets/site.css?v=3" />
   </head>
 
   <body>
     <a class="skip" href="#main">跳到主要内容</a>
 
-    <div class="ticker" aria-label="站点公告">
-      <div class="ticker__track">
-        <div class="ticker__group">
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-        </div>
-        <div class="ticker__group" aria-hidden="true">
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-        </div>
-      </div>
+        <!-- 1. 顶部双格公告 -->
+    <div class="notice" role="note" aria-label="站点公告">
+      <div class="notice__cell"><span>全国均可发货</span></div>
+      <div class="notice__cell"><span>广州仓当日发货</span></div>
     </div>
 
-    <header class="site-header">
+<header class="site-header">
       <nav class="nav nav--left" aria-label="主导航">
         <a href="index.html">首页</a>
       </nav>
 
-      <a class="brand" href="index.html" aria-label="简衣购 首页">简衣购</a>
+      <a class="brand" href="index.html" aria-label="简衣购 首页"><img src="assets/logo-header.png" alt="JYG 简衣购" width="305" height="84" decoding="async" /></a>
 
       <nav class="nav nav--right" aria-label="产品导航">
-        <a href="catalog.html" aria-current="page">时装</a>
+        <a href="catalog.html" aria-current="page">款式</a>
       </nav>
     </header>
 
     <main id="main" class="page">
       <div>
         <p class="page__eyebrow">CATALOG</p>
-        <h1 class="page__title">时装</h1>
+        <h1 class="page__title">款式</h1>
         <p class="page__text">
           产品目录正在整理中。上线后将在此展示简衣购当季全部单品。
         </p>
@@ -89,7 +75,7 @@
           </span>
         </div>
 
-        <a class="monogram" href="index.html" aria-label="简衣购 首页">简</a>
+        <a class="monogram" href="index.html" aria-label="简衣购 首页"><img src="assets/logo-jyg.png" alt="JYG" width="117" height="60" decoding="async" /></a>
 
         <details class="help">
           <summary>
@@ -121,6 +107,7 @@
     <script src="assets/cursor.js" defer></script>
   </body>
 </html>
+
 
 
 

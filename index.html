@@ -9,8 +9,9 @@
       content="简衣购 Jianyigou，广州时装品牌。全国均可发货，广州仓当日发货。"
     />
     <meta name="theme-color" content="#0a0a0a" />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="assets/site.css?v=2" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="assets/site.css?v=3" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="简衣购 Jianyigou" />
@@ -52,26 +53,10 @@
   <body class="hero-page">
     <a class="skip" href="#main">跳到主要内容</a>
 
-    <!-- 1. 公告跑马灯 -->
-    <div class="ticker" aria-label="站点公告">
-      <div class="ticker__track">
-        <div class="ticker__group">
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-        </div>
-        <div class="ticker__group" aria-hidden="true">
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-          <span>全国均可发货</span>
-          <span>广州仓当日发货</span>
-        </div>
-      </div>
+    <!-- 1. 顶部双格公告 -->
+    <div class="notice" role="note" aria-label="站点公告">
+      <div class="notice__cell"><span>全国均可发货</span></div>
+      <div class="notice__cell"><span>广州仓当日发货</span></div>
     </div>
 
     <!-- 2. 悬浮胶囊导航 -->
@@ -80,10 +65,10 @@
         <a href="index.html" aria-current="page">首页</a>
       </nav>
 
-      <a class="brand" href="index.html" aria-label="简衣购 首页">简衣购</a>
+      <a class="brand" href="index.html" aria-label="简衣购 首页"><img src="assets/logo-header.png" alt="JYG 简衣购" width="305" height="84" decoding="async" /></a>
 
       <nav class="nav nav--right" aria-label="产品导航">
-        <a href="catalog.html">时装</a>
+        <a href="catalog.html">款式</a>
       </nav>
     </header>
 
@@ -162,7 +147,7 @@
           </span>
         </div>
 
-        <a class="monogram" href="index.html" aria-label="简衣购 首页">简</a>
+        <a class="monogram" href="index.html" aria-label="简衣购 首页"><img src="assets/logo-jyg.png" alt="JYG" width="117" height="60" decoding="async" /></a>
 
         <details class="help">
           <summary>
@@ -194,6 +179,7 @@
     <script src="assets/cursor.js" defer></script>
   </body>
 </html>
+
 
 
 
