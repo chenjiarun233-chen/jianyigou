@@ -83,56 +83,29 @@ img {
   outline-offset: 3px;
 }
 
-/* ---------- 1. 公告跑马灯 ---------- */
+/* ---------- 1. 顶部双格公告 ---------- */
 
-.ticker {
+.notice {
   position: fixed;
   inset: 0 0 auto 0;
   height: var(--bar-h);
   z-index: 60;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--paper);
+}
+
+.notice__cell {
+  display: grid;
+  place-items: center;
   background: var(--ink);
   color: #fff;
-}
-
-.ticker__track {
-  display: flex;
-  flex: 0 0 auto;
-  white-space: nowrap;
-  animation: ticker-scroll 38s linear infinite;
-  will-change: transform;
-}
-
-.ticker:hover .ticker__track {
-  animation-play-state: paused;
-}
-
-.ticker__group {
-  display: flex;
-  align-items: center;
-  gap: 64px;
-  padding-right: 64px;
-}
-
-.ticker__group span {
   font-size: 11px;
   line-height: 1;
   letter-spacing: 0.18em;
-}
-
-.ticker__group span + span::before {
-  content: "";
-}
-
-@keyframes ticker-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  /* 抵消字距造成的右侧留白，让文字真正居中 */
+  text-indent: 0.18em;
 }
 
 /* ---------- 2. 悬浮胶囊导航 ---------- */
@@ -180,13 +153,15 @@ img {
 
 .brand {
   justify-self: center;
-  padding-left: 0.34em;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.34em;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: var(--ink);
-  white-space: nowrap;
+}
+
+.brand img {
+  display: block;
+  height: 34px;
+  width: auto;
 }
 
 /* ---------- 3. 满屏 Hero ---------- */
@@ -304,12 +279,15 @@ img {
 
 .monogram {
   justify-self: center;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: var(--ink);
+}
+
+.monogram img {
+  display: block;
+  height: 22px;
+  width: auto;
 }
 
 .help {
@@ -459,14 +437,10 @@ a.help__row:hover {
     --radius: 14px;
   }
 
-  .ticker__group {
-    gap: 44px;
-    padding-right: 44px;
-  }
-
-  .ticker__group span {
+  .notice__cell {
     font-size: 10px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
+    text-indent: 0.1em;
   }
 
   .site-header {
@@ -482,10 +456,8 @@ a.help__row:hover {
     letter-spacing: 0.1em;
   }
 
-  .brand {
-    font-size: 17px;
-    letter-spacing: 0.26em;
-    padding-left: 0.26em;
+  .brand img {
+    height: 26px;
   }
 
   .hero {
@@ -529,8 +501,8 @@ a.help__row:hover {
     height: 18px;
   }
 
-  .monogram {
-    font-size: 16px;
+  .monogram img {
+    height: 18px;
   }
 
   .help > summary {
@@ -564,9 +536,6 @@ a.help__row:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker__track {
-    animation: none;
-  }
 
   .hero__cta,
   .help__chevron {
