@@ -1,26 +1,26 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>款式｜简衣购 Jianyigou</title>
-    <meta name="description" content="简衣购时装产品目录。" />
+    <title>款式｜简衣购</title>
+    <meta name="description" content="简衣购全部款式，广州包邮发货，全国均可送达。" />
     <meta name="theme-color" content="#0a0a0a" />
     <link rel="icon" href="assets/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/favicon.png" />
-    <link rel="stylesheet" href="assets/site.css?v=4" />
+    <link rel="stylesheet" href="assets/site.css?v=8" />
   </head>
 
   <body>
     <a class="skip" href="#main">跳到主要内容</a>
 
-        <!-- 1. 顶部双格公告 -->
+    <!-- 1. 顶部双格公告 -->
     <div class="notice" role="note" aria-label="站点公告">
       <div class="notice__cell"><span>全国均可发货</span></div>
       <div class="notice__cell"><span>广州仓当日发货</span></div>
     </div>
 
-<header class="site-header">
+    <header class="site-header">
       <nav class="nav nav--left" aria-label="主导航">
         <a href="index.html">首页</a>
       </nav>
@@ -32,14 +32,35 @@
       </nav>
     </header>
 
-    <main id="main" class="page">
-      <div>
-        <p class="page__eyebrow">CATALOG</p>
-        <h1 class="page__title">款式</h1>
-        <p class="page__text">
-          产品目录正在整理中。上线后将在此展示简衣购当季全部单品。
-        </p>
-        <a class="page__back" href="index.html">返回首页</a>
+    <main id="main" class="catalog">
+      <div class="catalog__head">
+        <h1 class="catalog__title">全部款式</h1>
+        <p class="catalog__count">共 1 件</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <a class="card__media" href="product.html" aria-label="珠地棉短袖 POLO 衫">
+            <img src="assets/product/polo-white.webp" alt="珠地棉短袖 POLO 衫 白色" width="1046" height="1400" loading="lazy" />
+          </a>
+
+          <a class="card__name" href="product.html">珠地棉短袖 POLO 衫</a>
+
+          <div class="card__meta">
+            <span class="card__price">¥379.00</span>
+            <button class="card__fav" type="button" aria-label="收藏珠地棉短袖 POLO 衫" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20.2s-7.4-4.7-7.4-9.6A4.2 4.2 0 0 1 12 7.6a4.2 4.2 0 0 1 7.4 3c0 4.9-7.4 9.6-7.4 9.6z" />
+              </svg>
+            </button>
+          </div>
+          <div class="card__colors" role="group" aria-label="珠地棉短袖 POLO 衫 可选颜色">
+            <button class="dot" type="button" data-img="assets/product/polo-white.webp" data-alt="珠地棉短袖 POLO 衫 白色" style="background:#f7f7f5" aria-label="白" aria-pressed="true"></button>
+            <button class="dot" type="button" data-img="assets/product/polo-grey.webp" data-alt="珠地棉短袖 POLO 衫 灰色" style="background:#b7b7b7" aria-label="灰" aria-pressed="false"></button>
+            <button class="dot" type="button" data-img="assets/product/polo-wine.webp" data-alt="珠地棉短袖 POLO 衫 酒红" style="background:#6d1b2e" aria-label="酒红" aria-pressed="false"></button>
+            <button class="dot" type="button" data-img="assets/product/polo-black.webp" data-alt="珠地棉短袖 POLO 衫 黑色" style="background:#1b1b1b" aria-label="黑" aria-pressed="false"></button>
+          </div>
+        </article>
       </div>
     </main>
 
@@ -60,22 +81,36 @@
             </svg>
           </a>
 
-          <span class="social social--off" role="img" aria-label="微信：即将开通" title="微信：即将开通">
+          <a
+            class="social"
+            href="https://weixin.qq.com/sph/AZYeRLX09"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="简衣购 微信视频号"
+            title="微信视频号"
+          >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M8.8 4.2C5.7 4.2 3.2 6.2 3.2 8.7c0 1.4.8 2.7 2 3.5l-.5 1.8 2-1c.6.2 1.3.3 2 .3" />
               <path d="M15.2 9.4c3.1 0 5.6 2 5.6 4.5 0 1.4-.8 2.7-2 3.5l.5 1.8-2-1c-.6.2-1.3.3-2.1.3-3.1 0-5.6-2-5.6-4.6s2.5-4.5 5.6-4.5z" />
             </svg>
-          </span>
+          </a>
 
-          <span class="social social--off" role="img" aria-label="抖音：即将开通" title="抖音：即将开通">
+          <a
+            class="social"
+            href="https://www.douyin.com/user/MS4wLjABAAAA7yvzwNQ1ZXdCSwwrTu3CkUqQWHUsR6KmaF4YsTpRo9_riacUnJFEKCS1U-qI0uDf?from_tab_name=main"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="简衣购 抖音主页"
+            title="抖音"
+          >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M14 4v9.6a3.3 3.3 0 1 1-3.1-3.3" />
               <path d="M14 4c.4 2.2 1.9 3.7 4 4" />
             </svg>
-          </span>
+          </a>
         </div>
 
-        <a class="monogram" href="index.html" aria-label="简衣购 首页"><img src="assets/logo-jyg.png" alt="JYG" width="117" height="60" decoding="async" /></a>
+        <a class="monogram" href="index.html" aria-label="简衣购 首页"><img src="assets/logo-mark.png" alt="简衣购" width="339" height="400" decoding="async" /></a>
 
         <details class="help">
           <summary>
@@ -94,20 +129,28 @@
               小红书
               <em>查看主页</em>
             </a>
-            <div class="help__row">微信 <em>即将开通</em></div>
-            <div class="help__row">抖音 <em>即将开通</em></div>
+            <a class="help__row" href="https://weixin.qq.com/sph/AZYeRLX09" target="_blank" rel="noopener noreferrer">
+              微信视频号
+              <em>查看主页</em>
+            </a>
+            <a class="help__row" href="https://www.douyin.com/user/MS4wLjABAAAA7yvzwNQ1ZXdCSwwrTu3CkUqQWHUsR6KmaF4YsTpRo9_riacUnJFEKCS1U-qI0uDf?from_tab_name=main" target="_blank" rel="noopener noreferrer">
+              抖音
+              <em>查看主页</em>
+            </a>
             <div class="help__row">发货 <em>广州仓当日发货</em></div>
+
+            <div class="help__qr">
+              <span>联系客服 · 微信扫码</span>
+              <img src="assets/wechat-qr.png" alt="简衣购微信客服二维码" width="134" height="134" loading="lazy" />
+            </div>
           </div>
         </details>
       </div>
     </footer>
 
     <p class="copyright">© 2026 简衣购 Jianyigou · 保留所有权利</p>
-      <script src="assets/site.js" defer></script>
+
+    <script src="assets/site.js" defer></script>
     <script src="assets/cursor.js" defer></script>
   </body>
 </html>
-
-
-
-

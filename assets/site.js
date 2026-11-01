@@ -15,3 +15,28 @@
     }
   });
 })();
+
+/* 列表页收藏按钮（纯前端状态） */
+document.addEventListener("click", function (e) {
+  var btn = e.target.closest ? e.target.closest(".card__fav") : null;
+  if (!btn) return;
+  var on = btn.getAttribute("aria-pressed") === "true";
+  btn.setAttribute("aria-pressed", String(!on));
+});
+
+/* 列表页：点击颜色圈切换主图（与详情页同效果） */
+document.addEventListener("click", function (e) {
+  var dot = e.target.closest ? e.target.closest(".card__colors .dot") : null;
+  if (!dot) return;
+  var card = dot.closest(".card");
+  if (!card) return;
+  var dots = card.querySelectorAll(".card__colors .dot");
+  Array.prototype.forEach.call(dots, function (d) {
+    d.setAttribute("aria-pressed", String(d === dot));
+  });
+  var img = card.querySelector(".card__media img");
+  if (img && dot.dataset.img) {
+    img.src = dot.dataset.img;
+    if (dot.dataset.alt) img.alt = dot.dataset.alt;
+  }
+});

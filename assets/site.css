@@ -1,4 +1,5 @@
-/* ============================================================
+/*
+ ============================================================
    简衣购 Jianyigou — 站点样式
    结构参考：shopavenor.com（公告跑马灯 / 悬浮胶囊导航 /
    满屏 Hero / 悬浮胶囊页脚）
@@ -287,7 +288,7 @@ img {
 
 .monogram img {
   display: block;
-  height: 22px;
+  height: 26px;
   width: auto;
 }
 
@@ -602,4 +603,672 @@ html.js-cursor select {
   html.js-cursor span {
     cursor: auto;
   }
+}
+
+/* ---------- 5. 商品详情页（结构参考 Cider） ---------- */
+
+.pdp {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: calc(var(--header-top) + var(--header-h) + 30px) var(--gutter) 160px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 56px;
+  align-items: start;
+}
+
+.pdp__gallery {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.pdp__thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pdp__thumb {
+  width: 80px;
+  height: 106px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f4f4f5;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.pdp__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pdp__thumb[aria-selected="true"] {
+  border-color: var(--ink);
+}
+
+.pdp__stage {
+  background: #f4f4f5;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.pdp__stage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pdp__info {
+  padding-top: 4px;
+}
+
+.pdp__title {
+  margin: 0 0 12px;
+  font-size: 26px;
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.pdp__price {
+  margin: 0 0 28px;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.pdp__block {
+  margin-bottom: 24px;
+}
+
+.pdp__label {
+  margin-bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.pdp__label b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.swatches {
+  display: flex;
+  gap: 12px;
+}
+
+.swatch {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+}
+
+.swatch[aria-pressed="true"]::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+}
+
+.sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.size {
+  min-width: 54px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #d8d8da;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.size:hover {
+  border-color: var(--ink);
+}
+
+.size[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.pdp__bag {
+  width: 100%;
+  height: 52px;
+  margin: 6px 0 26px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.pdp__bag:hover {
+  opacity: 0.86;
+}
+
+.pdp__acc details {
+  border-top: 1px solid #e6e6e8;
+}
+
+.pdp__acc details:last-child {
+  border-bottom: 1px solid #e6e6e8;
+}
+
+.pdp__acc summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 0;
+  list-style: none;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.pdp__acc summary::-webkit-details-marker {
+  display: none;
+}
+
+.pdp__acc summary svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+
+.pdp__acc details[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.pdp__acc p {
+  margin: 0 0 18px;
+  font-size: 13px;
+  line-height: 1.95;
+  color: #3a3a3c;
+}
+
+/* 入袋提示 */
+.bag-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 132px;
+  z-index: 99999;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.92);
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, 10px);
+  pointer-events: none;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.bag-toast.is-on {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 1100px) {
+  .pdp {
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 860px) {
+  .pdp {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+    padding-top: calc(var(--header-top) + var(--header-h) + 14px);
+    padding-bottom: 150px;
+  }
+
+  .pdp__gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pdp__thumbs {
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .pdp__thumbs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pdp__thumb {
+    flex: 0 0 auto;
+    width: 64px;
+    height: 85px;
+  }
+
+  /* 手机上大图在前、缩略图在后 */
+  .pdp__stage {
+    order: -1;
+  }
+
+  .pdp__title {
+    font-size: 21px;
+  }
+
+  .pdp__price {
+    font-size: 17px;
+    margin-bottom: 22px;
+  }
+
+  .bag-toast {
+    bottom: 118px;
+  }
+}
+
+/* ---------- 6. 款式列表（网格） ---------- */
+
+.catalog {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: calc(var(--header-top) + var(--header-h) + 40px) var(--gutter) 170px;
+}
+
+.catalog__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.catalog__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.catalog__count {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 44px 22px;
+}
+
+.card {
+  position: relative;
+}
+
+.card__media {
+  display: block;
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f4f4f5;
+}
+
+.card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.card:hover .card__media img {
+  transform: scale(1.035);
+}
+
+.card__name {
+  display: block;
+  margin: 14px 0 7px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card__price {
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+}
+
+.card__fav {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.card__fav svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.3;
+}
+
+.card__fav[aria-pressed="true"] svg {
+  fill: var(--ink);
+}
+
+/* ---------- 7. 详情页：二级折叠 / 规格 / 洗护 ---------- */
+
+.pdp__crumb {
+  grid-column: 1 / -1;
+  margin: 0 0 -18px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.pdp__crumb a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.pdp__crumb a:hover {
+  color: var(--ink);
+}
+
+.acc__body {
+  padding: 2px 0 6px;
+}
+
+.sub {
+  border-top: 1px solid #efeff1;
+}
+
+.sub summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 0;
+  list-style: none;
+  cursor: pointer;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+}
+
+.sub summary::-webkit-details-marker {
+  display: none;
+}
+
+.sub summary .ico {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sub summary .chev {
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.22s ease;
+}
+
+.sub[open] summary .chev {
+  transform: rotate(90deg);
+}
+
+.sub__box {
+  margin: 0 0 15px;
+  padding: 16px 18px;
+  border-radius: 8px;
+  background: #f6f6f7;
+  font-size: 12.5px;
+  line-height: 1.9;
+  color: #333;
+}
+
+.sub__box p {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  line-height: 1.9;
+  color: #333;
+}
+
+.sub__box p:last-child {
+  margin-bottom: 0;
+}
+
+.sub__box h4 {
+  margin: 14px 0 4px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.sub__box h4:first-child {
+  margin-top: 0;
+}
+
+.spec h3 {
+  margin: 16px 0 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.spec h3:first-child {
+  margin-top: 0;
+}
+
+.spec ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.spec li {
+  font-size: 12.5px;
+  line-height: 1.95;
+  color: #333;
+}
+
+.spec ul ul {
+  margin: 4px 0 2px;
+  padding-left: 18px;
+  list-style: square;
+}
+
+.hl {
+  background: linear-gradient(transparent 58%, rgba(125, 24, 44, 0.16) 58%);
+  padding: 0 3px;
+}
+
+.care {
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+
+.care li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  line-height: 2.15;
+  color: #333;
+}
+
+.care svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.care-note {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12.5px;
+  line-height: 1.95;
+  color: #333;
+}
+
+/* 页脚客服二维码 */
+.help__qr {
+  margin-top: 6px;
+  padding: 14px 10px 8px;
+  border-top: 1px solid #ececee;
+  text-align: center;
+}
+
+.help__qr span {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.help__qr img {
+  display: block;
+  width: 134px;
+  height: 134px;
+  margin: 0 auto;
+  border-radius: 6px;
+  background: #fff;
+}
+
+@media (max-width: 860px) {
+  .catalog {
+    padding-top: calc(var(--header-top) + var(--header-h) + 18px);
+    padding-bottom: 150px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 30px 12px;
+  }
+
+  .catalog__title {
+    font-size: 17px;
+  }
+
+  .pdp__crumb {
+    margin-bottom: -8px;
+  }
+}
+
+/* 洗护说明小标题 */
+.spec__h {
+  margin: 16px 0 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.spec__h:first-child {
+  margin-top: 2px;
+}
+
+/* 商品详情 / 洗护指南：仿 Cider 的浅灰内容卡 */
+.acc__body--box {
+  margin: 2px 0 15px;
+  padding: 16px 18px;
+  border-radius: 8px;
+  background: #f6f6f7;
+}
+
+.card__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 11px;
+  padding-left: 1px;
+}
+
+.dot {
+  position: relative;
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  background-clip: padding-box;
+  cursor: pointer;
+  transition: transform 0.18s ease;
+}
+
+.dot::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+}
+
+.dot:hover {
+  transform: scale(1.12);
+}
+
+.dot[aria-pressed="true"]::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
 }
